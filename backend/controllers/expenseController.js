@@ -1,5 +1,6 @@
 import expenseModel from "../models/expenseModel.js";
 import getDateRange from "../utils/dateFilter.js";
+import XLSX from "xlsx";
 
 //Add Expense
 export const addExpense = async (req, res) => {
@@ -132,7 +133,10 @@ export const getExpenseOverview = async (req, res) => {
       })
       .sort({ date: -1 });
 
-    const totalExpense = expense.reduce((acc, cur) => acc + cur.amount, 0);
+    const totalExpense = expense.reduce(
+      (acc, cur) => acc + Number(cur.amount || 0),
+      0,
+    );
     const averageExpense =
       expense.length > 0 ? totalExpense / expense.length : 0;
     const numberOfTransactions = expense.length;

@@ -126,6 +126,7 @@ export const getIncomeOverview = async (req, res) => {
     const userId = req.user._id; // Get user ID from authenticated user
     const { range = "monthly" } = req.query;
     const { start, end } = getDateRange(range);
+
     const incomes = await incomeModel
       .find({
         userId,
@@ -133,7 +134,10 @@ export const getIncomeOverview = async (req, res) => {
       })
       .sort({ date: -1 });
 
-    const totalIncome = incomes.reduce((acc, cur) => acc + cur.amount, 0);
+    const totalIncome = incomes.reduce(
+      (acc, cur) => acc + Number(cur.amount || 0),
+      0,
+    );
     const averageIncome = incomes.length > 0 ? totalIncome / incomes.length : 0;
     const numberOfTransactions = incomes.length;
 
@@ -154,3 +158,5 @@ export const getIncomeOverview = async (req, res) => {
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
+
+
