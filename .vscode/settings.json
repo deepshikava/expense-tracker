@@ -1,0 +1,16 @@
+{
+     // other settings
+  "tailwindCSS.includeLanguages": {
+       "javascript": "javascript",
+    "html": "HTML",
+    "javascriptreact": "javascript",
+    "typescript": "typescript",
+    "typescriptreact": "typescript",
+  },
+
+"editor.inlineSuggest.enabled": true,
+"editor.quickSuggestions": {
+   "strings": true
+},
+"css.validate": false,
+}
