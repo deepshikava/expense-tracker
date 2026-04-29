@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { loginStyles } from "../assets/dummyStyles";
-import { Mail, User, Lock, EyeOff, EyeClosed, Eye } from "lucide-react";
+import { Mail, User, Lock, EyeOff, Eye } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
