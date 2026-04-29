@@ -16,7 +16,6 @@ import {
   Info,
   PieChart,
   PiggyBank,
-  RefreshCcw,
   RefreshCw,
   ShoppingCart,
   TrendingUp,
