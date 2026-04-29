@@ -60,7 +60,7 @@ const Signup = ({ onSignup, API_URL = "http://localhost:4000" }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors({});
-    if (!validateForm) return;
+    if (!validateForm()) return;
 
     setIsLoading(true);
 
@@ -138,7 +138,7 @@ const Signup = ({ onSignup, API_URL = "http://localhost:4000" }) => {
         </div>
 
         <div className={signupStyles.formContainer}>
-          {errors.api && <p className={signupStyles.apiError}>{errors} </p>}
+          {errors.api && <p className={signupStyles.apiError}>{errors.api} </p>}
 
           <form onSubmit={handleSubmit} noValidate>
             <div className="mb-6">
