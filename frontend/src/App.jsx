@@ -140,7 +140,7 @@ const App = () => {
       } catch (error) {
         console.error("error bootstrapping auth: ", error);
       } finally {
-        isLoading(false);
+        setIsLoading(false);
 
         try {
           setTransactions(getTransactionsFromStorage());

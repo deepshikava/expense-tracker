@@ -7,7 +7,7 @@ const FinancialCard = ({
   bgColor = "bg-white",
 }) => (
   <div
-    className={`${bgColor} rounded-xl p-5 lg:-mx-2 lg:p-2 shadow-sm border border-gray-100 hover:shadow-md transition-all ${borderColor}`}
+    className={`${bgColor} rounded-xl p-5 lg:mx-2 lg:p-4 shadow-sm border border-gray-100 hover:shadow-md transition-all ${borderColor}`}
   >
     <div className="text-sm font-medium text-gray-600 flex items-center gap-2">
       {icon}
