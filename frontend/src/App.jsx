@@ -3,7 +3,7 @@ import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 import Income from "./pages/Income";
 import Expense from "./pages/Expense";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Profile from "./pages/Profile";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
@@ -240,9 +240,27 @@ const App = () => {
             deleteTransaction={deleteTransaction}
             refreshTransactions={refreshTransactions}
           />
-          <Route path="/expense" element={<Expense />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route
+            path="/expense"
+            element={<Expense />}
+            transactions={transactions}
+            addTransaction={addTransaction}
+            editTransaction={editTransaction}
+            deleteTransaction={deleteTransaction}
+            refreshTransactions={refreshTransactions}
+          />
+          <Route
+            path="/profile"
+            element={<Profile />}
+            user={user}
+            onUpdateProfile={updateUserData}
+            onLogout={handleLogout}
+          />
         </Route>
+        <Route
+          path="*"
+          element={<Navigate to={user ? "/" : "/login"} replace />}
+        />
       </Routes>
     </>
   );
