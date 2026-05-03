@@ -153,7 +153,7 @@ const AddTransactionModal = ({
                 type="date"
                 value={newTransaction.date}
                 onChange={(e) =>
-                  newTransaction((prev) => ({
+                  setNewTransaction((prev) => ({
                     ...prev,
                     date: e.target.value,
                   }))
