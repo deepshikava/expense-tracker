@@ -231,7 +231,15 @@ const App = () => {
             deleteTransaction={deleteTransaction}
             refreshTransactions={refreshTransactions}
           />
-          <Route path="/income" element={<Income />} />
+          <Route
+            path="/income"
+            element={<Income />}
+            transactions={transactions}
+            addTransaction={addTransaction}
+            editTransaction={editTransaction}
+            deleteTransaction={deleteTransaction}
+            refreshTransactions={refreshTransactions}
+          />
           <Route path="/expense" element={<Expense />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
