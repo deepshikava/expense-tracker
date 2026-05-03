@@ -3,6 +3,7 @@ import { styles } from "../assets/dummyStyles";
 import NavBar from "./NavBar";
 import Sidebar from "./Sidebar";
 import {
+  ActivityIcon,
   ArrowDown,
   ArrowUp,
   Car,
@@ -34,7 +35,7 @@ const CATEGORY_ICONS = {
   Shopping: <ShoppingCart className="w-4 h-4" />,
   Entertainment: <Gift className="w-4 h-4" />,
   Utilities: <Zap className="w-4 h-4" />,
-  Healthcare: <Activity className="w-4 h-4" />,
+  Healthcare: <ActivityIcon className="w-4 h-4" />,
   Salary: <ArrowUp className="w-4 h-4" />,
   Freelance: <CreditCard className="w-4 h-4" />,
   Savings: <PiggyBank className="w-4 h-4" />,
@@ -88,8 +89,8 @@ const Layout = ({ onLogout, user, setUser }) => {
       const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
       const [incomeRes, expenseRes] = await Promise.all([
-        axios.get(`${API_BASE}/income/get`, { headers }),
-        axios.get(`${API_BASE}/expense/get`, { headers }),
+        axios.get(`${API_BASE}/income/all`, { headers }),
+        axios.get(`${API_BASE}/expense/all`, { headers }),
       ]);
 
       const incomes = safeArrayFromResponse(incomeRes).map((i) => ({

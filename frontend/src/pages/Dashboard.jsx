@@ -515,13 +515,13 @@ const Dashboard = () => {
                   % of income
                 </span>
               </div>
-              {typeof overviewMeta.savingsRate === "number"} && (
-              <span
-                className={`px-2 py-1 rounded-full text-sm font-medium ${overviewMeta.savingsRate < 0 ? trendStyles.negativeRate : trendStyles.positiveRate}`}
-              >
-                {overviewMeta.savingsRate}%
-              </span>
-              )
+              {typeof overviewMeta.savingsRate === "number" && (
+                <span
+                  className={`px-2 py-1 rounded-full text-sm font-medium ${overviewMeta.savingsRate < 0 ? trendStyles.negativeRate : trendStyles.positiveRate}`}
+                >
+                  {overviewMeta.savingsRate}%
+                </span>
+              )}
             </div>
           }
         />

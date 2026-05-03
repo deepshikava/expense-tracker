@@ -489,7 +489,7 @@ export const navbarStyles = {
 
   // Text styles
   logoText:
-    "lg:text-3xl md:text-3xl text-2xl text-gray-900 font-[550] lobster-regular",
+    "lg:text-3xl md:text-3xl text-2xl text-gray-900 font-[550] bungee-regular",
 
   // User profile styles
   userContainer: "relative",
