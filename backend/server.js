@@ -10,11 +10,6 @@ import dashboardRouter from "./routes/dashboardRoute.js";
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-const allowedOrigins = [
-  process.env.FRONTEND_URL || "http://localhost:5173",
-  "http://localhost:5173",
-];
-
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -26,15 +21,6 @@ app.use(
     credentials: false,
   }),
 );
-
-// app.use(
-//   cors({
-//     origin: "*",
-//     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-//     allowedHeaders: ["Content-Type", "Authorization"],
-//     credentials: true,
-//   }),
-// );
 
 //DB
 connectDB();
