@@ -3,8 +3,11 @@ import { signupStyles } from "../assets/dummyStyles";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ArrowLeft, Eye, EyeOff, Lock, Mail, User } from "lucide-react";
+import { fetchAPIUrl } from "../utils/apiUtilsjs";
 
-const Signup = ({ onSignup, API_URL = "http://localhost:4000" }) => {
+const BACKEND_API_URL = fetchAPIUrl();
+
+const Signup = ({ onSignup, API_URL = BACKEND_API_URL }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

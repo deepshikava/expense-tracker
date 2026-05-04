@@ -3,8 +3,11 @@ import { loginStyles } from "../assets/dummyStyles";
 import { Mail, User, Lock, EyeOff, Eye } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { fetchAPIUrl } from "../utils/apiUtilsjs";
 
-const Login = ({ onLogin, API_URL = "http://localhost:4000" }) => {
+const BACKEND_API_URL = fetchAPIUrl();
+
+const Login = ({ onLogin, API_URL = BACKEND_API_URL }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -32,7 +35,7 @@ const Login = ({ onLogin, API_URL = "http://localhost:4000" }) => {
       const response = await axios.post(
         `${API_URL}/api/user/login`,
         { email, password },
-        { headers: { "Context-Type": "application/json" } },
+        { headers: { "Content-Type": "application/json" } },
       );
       const data = response.data || {};
       const token = data.token || null;

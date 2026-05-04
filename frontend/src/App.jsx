@@ -3,13 +3,14 @@ import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 import Income from "./pages/Income";
 import Expense from "./pages/Expense";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Profile from "./pages/Profile";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import axios from "axios";
+import { fetchAPIUrl } from "./utils/apiUtilsjs";
 
-const API_URL = "http://localhost:4000";
+const API_URL = fetchAPIUrl();
 
 //to get transaction from localStorage
 const getTransactionsFromStorage = () => {

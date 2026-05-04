@@ -5,8 +5,11 @@ import { Eye, EyeOff, User, Lock, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import { fetchAPIUrl } from "../utils/apiUtilsjs";
 
-const BASE_URL = "http://localhost:4000/api";
+const BACKEND_API_URL = fetchAPIUrl();
+
+const BASE_URL = `${BACKEND_API_URL}/api`;
 
 Modal.setAppElement("#root");
 // Move PasswordInput component outside of ProfilePage to prevent recreation on every render
@@ -118,7 +121,7 @@ const Profile = ({ onUpdateProfile, onLogout }) => {
           setUser(userData);
           setTempUser(userData);
         }
-      } catch (error) {
+      } catch (err) {
         toast.error("Failed to load user data");
       }
     };
