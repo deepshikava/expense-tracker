@@ -7,6 +7,7 @@ const AddTransactionModal = ({
   newTransaction,
   setNewTransaction,
   handleAddTransaction,
+  loading,
   type = "both",
   title = "Add New Transaction",
   buttonText = "Add Transaction",
@@ -166,9 +167,11 @@ const AddTransactionModal = ({
             </div>
             <button
               type="submit"
+              disabled={loading}
+              aria-busy={loading}
               className={modalStyles.submitButton(colorClass.button)}
             >
-              {buttonText}
+              {loading ? "Processing..." : buttonText}
             </button>
           </div>
         </form>

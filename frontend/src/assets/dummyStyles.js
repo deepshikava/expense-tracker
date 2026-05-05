@@ -400,7 +400,7 @@ export const modalStyles = {
 
   // Submit button
   submitButton: (color) =>
-    `w-full text-white py-3 rounded-lg font-medium mt-4 shadow-md hover:shadow-lg transition-all ${color}`,
+    `w-full text-white py-3 rounded-lg font-medium mt-4 shadow-md hover:shadow-lg transition-all ${color} disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-md`,
 
   // Color classes
   colorClasses: {
