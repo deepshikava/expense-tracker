@@ -10,7 +10,7 @@
 **A clean, interactive personal finance tracker built with React.**
 Track income, expenses, and spending trends — all in one dashboard.
 
-[Live Demo](#) · (https://expense-tracker-frontend-roan-pi.vercel.app/login) · [Request Feature](https://github.com/deepshikava/expense-tracker/issues)
+[Live Demo](#) · (https://expense-tracker-frontend-o551i7zck-deepshikavas-projects.vercel.app/login) · [Request Feature](https://github.com/deepshikava/expense-tracker/issues)
 
 ---
 
