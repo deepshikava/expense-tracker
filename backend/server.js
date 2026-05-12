@@ -22,8 +22,18 @@ app.use(
   }),
 );
 
-//DB
-connectDB();
+app.use("/api", async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error("Database connection failed:", err);
+    res.status(503).json({
+      success: false,
+      message: "Database unavailable. Please try again later.",
+    });
+  }
+});
 
 //Routes
 app.use("/api/user", userRouter);
@@ -35,6 +45,20 @@ app.get("/", (req, res) => {
   res.send("API Working!");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+async function startLocalServer() {
+  try {
+    await connectDB();
+    app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+  } catch (err) {
+    console.error("Failed to connect to MongoDB:", err);
+    process.exit(1);
+  }
+}
+
+if (!process.env.VERCEL) {
+  startLocalServer();
+}
+
+export default app;
